@@ -11,31 +11,31 @@ class TemplateHelper
 {
     public static function buttons(): Buttons
     {
-        return Buttons::create('\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e01\u0e32\u0e23\u0e14\u0e33\u0e40\u0e19\u0e34\u0e19\u0e01\u0e32\u0e23')
+        return Buttons::create('เลือกการดำเนินการ')
             ->title('Template Demo')
             ->thumbnailImageUrl('https://via.placeholder.com/300')
-            ->addAction(TemplateAction::create()->message('\u0e2a\u0e27\u0e31\u0e2a\u0e14\u0e35', '\u0e2a\u0e27\u0e31\u0e2a\u0e14\u0e35'))
-            ->addAction(TemplateAction::create()->postback('\u0e2a\u0e48\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25', 'action=test'))
-            ->addAction(TemplateAction::create()->uri('\u0e40\u0e1b\u0e34\u0e14\u0e40\u0e27\u0e47\u0e1a', 'https://example.com'));
+            ->addAction(TemplateAction::create()->message('สวัสดี', 'สวัสดี'))
+            ->addAction(TemplateAction::create()->postback('ส่งข้อมูล', 'action=test'))
+            ->addAction(TemplateAction::create()->uri('เปิดเว็บ', 'https://example.com'));
     }
 
     public static function carousel(): Carousel
     {
         return Carousel::create('Carousel Demo')
             ->addColumn(
-                CarouselColumn::create('\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e17\u0e35\u0e48 1')
+                CarouselColumn::create('ตัวเลือกที่ 1')
                     ->title('Option A')
-                    ->addAction(TemplateAction::create()->message('\u0e40\u0e25\u0e37\u0e2d\u0e01 A', 'A'))
+                    ->addAction(TemplateAction::create()->message('เลือก A', 'A'))
             )
             ->addColumn(
-                CarouselColumn::create('\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e17\u0e35\u0e48 2')
+                CarouselColumn::create('ตัวเลือกที่ 2')
                     ->title('Option B')
-                    ->addAction(TemplateAction::create()->message('\u0e40\u0e25\u0e37\u0e2d\u0e01 B', 'B'))
+                    ->addAction(TemplateAction::create()->message('เลือก B', 'B'))
             )
             ->addColumn(
-                CarouselColumn::create('\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e17\u0e35\u0e48 3')
+                CarouselColumn::create('ตัวเลือกที่ 3')
                     ->title('Option C')
-                    ->addAction(TemplateAction::create()->message('\u0e40\u0e25\u0e37\u0e2d\u0e01 C', 'C'))
+                    ->addAction(TemplateAction::create()->message('เลือก C', 'C'))
             );
     }
 }

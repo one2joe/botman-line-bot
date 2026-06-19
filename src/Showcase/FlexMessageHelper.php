@@ -22,7 +22,7 @@ class FlexMessageHelper
                     'type' => 'box',
                     'layout' => 'vertical',
                     'contents' => [
-                        ['type' => 'text', 'text' => '\u0e2a\u0e27\u0e31\u0e2a\u0e14\u0e35\u0e08\u0e32\u0e01 Flex Message!'],
+                        ['type' => 'text', 'text' => 'สวัสดีจาก Flex Message!'],
                         ['type' => 'text', 'text' => 'This is a Flex Message demo.'],
                         ['type' => 'separator'],
                         ['type' => 'text', 'text' => 'PHP + BotMan + LINE'],
@@ -37,7 +37,7 @@ class FlexMessageHelper
                             'type' => 'button',
                             'action' => [
                                 'type' => 'message',
-                                'label' => '\u0e40\u0e23\u0e34\u0e48\u0e21\u0e43\u0e2b\u0e21\u0e48',
+                                'label' => 'เริ่มใหม่',
                                 'text' => '/help',
                             ],
                         ],

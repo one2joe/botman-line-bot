@@ -1,0 +1,39 @@
+{
+    "name": "one2joe/botman-line-bot",
+    "description": "LINE Messenger Chatbot POC using BotMan",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "botman/botman": "^2.0",
+        "one2joe/botman-driver-line": "@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BotMan\\LineBot\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BotMan\\LineBot\\Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../botman-driver-line"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/one2joe/botman-driver-line.git"
+        }
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "one2joe"
+        }
+    ]
+}

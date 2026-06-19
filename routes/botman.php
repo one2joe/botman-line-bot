@@ -18,63 +18,63 @@ use BotMan\LineBot\Conversations\TutorialConversation;
 use BotMan\LineBot\Showcase\FlexMessageHelper;
 use BotMan\LineBot\Showcase\TemplateHelper;
 
-$botman->hears('\u0e2a\u0e27\u0e31\u0e2a\u0e14\u0e35|hi|hello', function (BotMan $bot) {
-    $bot->reply('\u0e2a\u0e27\u0e31\u0e2a\u0e14\u0e35\u0e04\u0e23\u0e31\u0e1a! \u0e22\u0e34\u0e19\u0e14\u0e35\u0e15\u0e49\u0e2d\u0e19\u0e23\u0e31\u0e1a\u0e2a\u0e39\u0e48 LINE BotMan');
+$botman->hears('สวัสดี|hi|hello', function (BotMan $bot) {
+    $bot->reply('สวัสดีครับ! ยินดีต้อนรับสู่ LINE BotMan');
 
-    $question = Question::create('\u0e1e\u0e34\u0e21\u0e1e\u0e4c /\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e14\u0e39\u0e04\u0e33\u0e2a\u0e31\u0e48\u0e07\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14')
-        ->addButton(Button::create('/\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d')->value('/help'))
-        ->addButton(Button::create('/\u0e40\u0e21\u0e19\u0e39')->value('/menu'));
+    $question = Question::create('พิมพ์ /ช่วยเหลือ เพื่อดูคำสั่งทั้งหมด')
+        ->addButton(Button::create('/ช่วยเหลือ')->value('/help'))
+        ->addButton(Button::create('/เมนู')->value('/menu'));
 
     $bot->reply($question);
 });
 
-$botman->hears('/\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d|/help', function (BotMan $bot) {
-    $template = LineButtons::create('\u0e04\u0e33\u0e2a\u0e31\u0e48\u0e07\u0e17\u0e35\u0e48\u0e21\u0e35\u0e43\u0e2b\u0e49\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19')
+$botman->hears('/ช่วยเหลือ|/help', function (BotMan $bot) {
+    $template = LineButtons::create('คำสั่งที่มีให้ใช้งาน')
         ->title('LINE BotMan Help')
-        ->addAction(TemplateAction::create()->message('/\u0e41\u0e19\u0e30\u0e19\u0e33', '/\u0e41\u0e19\u0e30\u0e19\u0e33'))
-        ->addAction(TemplateAction::create()->message('/\u0e0a\u0e37\u0e48\u0e2d', '/\u0e0a\u0e37\u0e48\u0e2d'))
-        ->addAction(TemplateAction::create()->message('/\u0e40\u0e17\u0e21\u0e40\u0e1e\u0e25\u0e15', '/\u0e40\u0e17\u0e21\u0e40\u0e1e\u0e25\u0e15'))
-        ->addAction(TemplateAction::create()->message('/\u0e40\u0e1f\u0e25\u0e47\u0e01\u0e0b\u0e4c', '/\u0e40\u0e1f\u0e25\u0e47\u0e01\u0e0b\u0e4c'));
+        ->addAction(TemplateAction::create()->message('/แนะนำ', '/แนะนำ'))
+        ->addAction(TemplateAction::create()->message('/ชื่อ', '/ชื่อ'))
+        ->addAction(TemplateAction::create()->message('/เทมเพลต', '/เทมเพลต'))
+        ->addAction(TemplateAction::create()->message('/เฟล็กซ์', '/เฟล็กซ์'));
 
     $bot->reply($template);
 });
 
-$botman->hears('/\u0e40\u0e21\u0e19\u0e39|/menu', function (BotMan $bot) {
+$botman->hears('/เมนู|/menu', function (BotMan $bot) {
     $carousel = Carousel::create('LINE BotMan Menu')
         ->addColumn(
-            CarouselColumn::create('\u0e41\u0e19\u0e30\u0e19\u0e33\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19')
+            CarouselColumn::create('แนะนำการใช้งาน')
                 ->title('Tutorial')
-                ->addAction(TemplateAction::create()->message('\u0e40\u0e23\u0e34\u0e48\u0e21\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49', '/\u0e41\u0e19\u0e30\u0e19\u0e33'))
+                ->addAction(TemplateAction::create()->message('เริ่มเรียนรู้', '/แนะนำ'))
         )
         ->addColumn(
-            CarouselColumn::create('\u0e15\u0e31\u0e49\u0e07\u0e0a\u0e37\u0e48\u0e2d\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13')
+            CarouselColumn::create('ตั้งชื่อของคุณ')
                 ->title('Name')
-                ->addAction(TemplateAction::create()->message('\u0e15\u0e31\u0e49\u0e07\u0e0a\u0e37\u0e48\u0e2d', '/\u0e0a\u0e37\u0e48\u0e2d'))
+                ->addAction(TemplateAction::create()->message('ตั้งชื่อ', '/ชื่อ'))
         )
         ->addColumn(
-            CarouselColumn::create('\u0e40\u0e17\u0e21\u0e40\u0e1e\u0e25\u0e15\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14')
+            CarouselColumn::create('เทมเพลตทั้งหมด')
                 ->title('Templates')
-                ->addAction(TemplateAction::create()->message('\u0e14\u0e39\u0e40\u0e17\u0e21\u0e40\u0e1e\u0e25\u0e15', '/\u0e40\u0e17\u0e21\u0e40\u0e1e\u0e25\u0e15'))
+                ->addAction(TemplateAction::create()->message('ดูเทมเพลต', '/เทมเพลต'))
         )
         ->addColumn(
             CarouselColumn::create('Flex Message')
                 ->title('Flex')
-                ->addAction(TemplateAction::create()->message('\u0e14\u0e39 Flex', '/\u0e40\u0e1f\u0e25\u0e47\u0e01\u0e0b\u0e4c'))
+                ->addAction(TemplateAction::create()->message('ดู Flex', '/เฟล็กซ์'))
         );
 
     $bot->reply($carousel);
 });
 
-$botman->hears('/\u0e41\u0e19\u0e30\u0e19\u0e33|/tutorial', function (BotMan $bot) {
+$botman->hears('/แนะนำ|/tutorial', function (BotMan $bot) {
     $bot->startConversation(new TutorialConversation());
 });
 
-$botman->hears('/\u0e0a\u0e37\u0e48\u0e2d|/name', function (BotMan $bot) {
+$botman->hears('/ชื่อ|/name', function (BotMan $bot) {
     $bot->startConversation(new NameConversation());
 });
 
-$botman->hears('/\u0e40\u0e17\u0e21\u0e40\u0e1e\u0e25\u0e15|/template', function (BotMan $bot) {
-    $template = Confirm::create('\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e14\u0e39\u0e40\u0e17\u0e21\u0e40\u0e1e\u0e25\u0e15\u0e41\u0e1a\u0e1a\u0e44\u0e2b\u0e19?')
+$botman->hears('/เทมเพลต|/template', function (BotMan $bot) {
+    $template = Confirm::create('ต้องการดูเทมเพลตแบบไหน?')
         ->addAction(TemplateAction::create()->message('Buttons', 'buttons'))
         ->addAction(TemplateAction::create()->message('Carousel', 'carousel'));
 
@@ -89,7 +89,7 @@ $botman->hears('carousel', function (BotMan $bot) {
     $bot->reply(TemplateHelper::carousel());
 });
 
-$botman->hears('/\u0e40\u0e1f\u0e25\u0e47\u0e01\u0e0b\u0e4c|/flex', function (BotMan $bot) {
+$botman->hears('/เฟล็กซ์|/flex', function (BotMan $bot) {
     $bot->reply(FlexMessageHelper::sampleBubble());
 });
 
@@ -118,10 +118,10 @@ $botman->hears('__file__', function (BotMan $bot) {
 });
 
 $botman->on('follow', function ($payload, BotMan $bot) {
-    $bot->reply('\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e17\u0e35\u0e48\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21! \u0e21\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e40\u0e23\u0e35\u0e22\u0e19\u0e01\u0e31\u0e19\u0e40\u0e25\u0e22');
+    $bot->reply('ขอบคุณที่ติดตาม! มาเริ่มเรียนกันเลย');
     $bot->startConversation(new TutorialConversation());
 });
 
 $botman->fallback(function (BotMan $bot) {
-    $bot->reply('\u0e44\u0e21\u0e48\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e04\u0e33\u0e16\u0e32\u0e21 \u0e1e\u0e34\u0e21\u0e1e\u0e4c /\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e14\u0e39\u0e04\u0e33\u0e2a\u0e31\u0e48\u0e07');
+    $bot->reply('ไม่เข้าใจคำถาม พิมพ์ /ช่วยเหลือ เพื่อดูคำสั่ง');
 });
